@@ -1,0 +1,16 @@
+\begin{table}
+\centering
+\caption{How errors changed from running without RaaS, to running with RaaS. The rows indicate errors occuring pre-RaaS. The columns are post-RaaS. For example, 744 scripts encountered a library error pre-RaaS, but ran successfully post-RaaS.}
+\begin{tabular}{lrrrrrr}
+\toprule
+{} &  library &  working directory &  missing file &  function &  other &  success \\
+\midrule
+library           &      425 &                 32 &           740 &        70 &    815 &      744 \\ \hline
+working directory &      107 &                 42 &           208 &        49 &    174 &      187 \\ \hline
+missing file      &        3 &                  0 &           262 &        25 &     41 &       31 \\ \hline
+function          &        0 &                  0 &            12 &       155 &     23 &       36 \\ \hline
+other             &        2 &                  0 &             8 &         3 &    241 &      141 \\ \hline
+success           &        0 &                  0 &             0 &         0 &      5 &      392 \\
+\bottomrule
+\end{tabular}
+\end{table}
