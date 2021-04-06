@@ -1,12 +1,18 @@
-\begin{tabular}{lrl}
+\begin{table}
+\centering
+\caption{The most common causes of errors in scripts from Dataverse after processing through RaaS. Note this table also includes the number of successes.}
+\label{tab:raas-error-data}
+\begin{tabular}{lllll}
 \toprule
-       Error Type &  Count & Percentage (Rounded) \\
+       Error Type & containR Count & RaaS Count & containR \% & RaaS \% \\
 \midrule
-          Library &    555 &                15.8\% \\ \hline
-Working directory &     75 &                 2.1\% \\ \hline
-     Missing file &   1258 &                35.8\% \\ \hline
-         Function &    307 &                 8.7\% \\ \hline
-            Other &   1320 &                37.6\% \\ \hline
-            Total &   3515 &                      \\
+          Library &              8 &        555 &       0.3\% &  10.9\% \\ \hline
+Working directory &             12 &         75 &       0.5\% &   1.5\% \\ \hline
+     Missing file &           1400 &       1258 &      60.1\% &  24.7\% \\ \hline
+         Function &             NA &        307 &         NA &   6.0\% \\ \hline
+          Success &             62 &       1587 &       2.6\% &  31.1\% \\ \hline
+            Other &            847 &       1320 &      36.4\% &  25.9\% \\ \hline
+            Total &           2329 &       3515 &            &        \\
 \bottomrule
 \end{tabular}
+\end{table}

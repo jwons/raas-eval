@@ -1,9 +1,14 @@
-\begin{tabular}{lrl}
+\begin{table}
+\centering
+\caption{The occurrences of errors in scripts from Dataverse without processing through RaaS. The percents are rounded to the nearest tenth.}
+\label{tab:error-occurrences}
+\begin{tabular}{lllll}
 \toprule
-Execution Result &  Count & Percentage (Rounded) \\
+ Result & containR Count & RaaS Count & containR \% & RaaS \% \\
 \midrule
-         Success &   1066 &                10.4\% \\ \hline
-           Error &   9223 &                89.6\% \\ \hline
-           Total &  18446 &                      \\
+Success &            408 &       1066 &      14.4\% &  10.4\% \\ \hline
+  Error &           2431 &       9223 &      85.6\% &  89.6\% \\ \hline
+  Total &           2839 &      10289 &            &        \\
 \bottomrule
 \end{tabular}
+\end{table}
