@@ -212,3 +212,13 @@ def get_dataset_metadata(doi, api_url="https://dataverse.harvard.edu/api/"):
                 subject = field["value"]
 
     return(subject, year)
+
+def is_clean(doi, scripts_df):
+    ret_val = None
+    doi_df = scripts_df[scripts_df["doi"] == doi]
+    if len(doi_df.index) > 0:
+        ret_val = False
+        errors = set(doi_df["error"].values)
+        if "success" in errors and len(errors) == 1:
+            ret_val = True
+    return ret_val
