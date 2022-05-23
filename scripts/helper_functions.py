@@ -22,11 +22,6 @@ def get_doi_from_filename(filename):
     return(doi)
 
 
-
-def get_doi_from_tag_name(image_tag):
-    return(image_tag[14:17] + image_tag[17:len(image_tag)].replace("-", ":", 1).upper().replace("-", "/"))
-
-
 def get_doi_from_dir_path(dir_path):
     doi = dir_path.split("datasets/")[1]
     doi = doi.replace("-", ":", 1)
@@ -123,6 +118,22 @@ def get_doi_from_results_filename(filename):
     return(doi)
 get_doi_from_results_filename_v = np.vectorize(get_doi_from_results_filename)
 
+def get_doi_from_tag_name(image_tag):
+    return(image_tag[6:9] + image_tag[9:len(image_tag)].replace("-", ":", 1).upper().replace("-", "/"))
+
+def get_doi_from_report(report):
+    report_dict = json.loads(report)
+    return(get_doi_from_tag_name(report_dict["Additional Information"]["Container Name"]))
+get_doi_from_report_v = np.vectorize(get_doi_from_report)
+
+def get_time_from_report(report):
+    report_dict = json.loads(report)
+    return(report_dict["Additional Information"]["Build Time"])
+get_time_from_report_v = np.vectorize(get_time_from_report)
+
+def create_script_id(doi, filename):
+    return(doi + ":" + os.path.basename(filename))
+create_script_id_v = np.vectorize(create_script_id)
 
 # This function categorizes error messages by searching for the most unique and common phrases in different types of R error messages
 def determine_error_cause(error_msg):
