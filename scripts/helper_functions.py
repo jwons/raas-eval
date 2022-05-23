@@ -107,6 +107,10 @@ def library_name_from_error(error_msg):
 
 #=================================================
 
+def strip_newlines(doi):
+    return(doi.strip("\n"))
+strip_newlines_v = np.vectorize(strip_newlines)
+
 def write_file_from_string(filename, to_write):
     with open("../results/" + filename, "w") as outfile:
         outfile.write(to_write)
@@ -139,6 +143,8 @@ create_script_id_v = np.vectorize(create_script_id)
 def determine_error_cause(error_msg):
     ret_val = "other"
     if(error_msg == "success"):
+        ret_val = error_msg
+    elif(error_msg == "timed out"):
         ret_val = error_msg
     elif("Error in setwd" in error_msg):
         ret_val = "working directory"
@@ -229,7 +235,7 @@ def is_clean(doi, scripts_df):
     doi_df = scripts_df[scripts_df["doi"] == doi]
     if len(doi_df.index) > 0:
         ret_val = False
-        errors = set(doi_df["error"].values)
+        errors = set(doi_df["nr_error"].values)
         if "success" in errors and len(errors) == 1:
             ret_val = True
     return ret_val
