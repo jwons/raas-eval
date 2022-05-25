@@ -136,7 +136,7 @@ def get_time_from_report(report):
 get_time_from_report_v = np.vectorize(get_time_from_report)
 
 def create_script_id(doi, filename):
-    return(doi + ":" + os.path.basename(filename))
+    return(doi + ":" + os.path.basename(filename).lower())
 create_script_id_v = np.vectorize(create_script_id)
 
 # This function categorizes error messages by searching for the most unique and common phrases in different types of R error messages
